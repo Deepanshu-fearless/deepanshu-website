@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Deepanshu's personal website, portfolio, projects and skills.">
+
+  <meta name="author" content="Deepanshu">
+
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification"
+    content="SHHc_EGL7qOmWA9mwEgSLSw4VMeD4UsiPVsb4boXDHk">
+
+  <title>Deepanshu | Personal Website</title>
+
+  <style>
+    /* =========================
+       RESET
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: #f7f7f5;
+      color: #111;
+      line-height: 1.6;
+      transition: 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+
+    /* =========================
+       DARK MODE
+    ========================== */
+
+    body.dark {
+      background: #101010;
+      color: #f5f5f5;
+    }
+
+    body.dark .navbar {
+      background: rgba(16, 16, 16, 0.85);
+      border-bottom-color: #292929;
+    }
+
+    body.dark .nav-links a {
+      color: #ddd;
+    }
+
+    body.dark .hero-card,
+    body.dark .skill-card,
+    body.dark .project-card,
+    body.dark .about-box {
+      background: #191919;
+      border-color: #303030;
+    }
+
+    body.dark .muted {
+      color: #aaa;
+    }
+
+    body.dark .section {
+      border-color: #292929;
+    }
+
+    body.dark .footer {
+      border-color: #292929;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      z-index: 1000;
+
+      padding: 18px 7%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(247, 247, 245, 0.82);
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid #ddd;
+
+      transition: 0.3s;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #6c4df6;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #6c4df6;
+    }
+
+    .nav-button {
+      padding: 10px 18px;
+      border-radius: 100px;
+
+      background: #111;
+      color: white !important;
+    }
+
+    body.dark .nav-button {
+      background: white;
+      color: #111 !important;
+    }
+
+    .menu-button {
+      display: none;
+
+      border: 0;
+      background: transparent;
+
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 100vh;
+
+      padding: 150px 7% 80px;
+
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+
+      align-items: center;
+      gap: 70px;
+    }
+
+    .badge {
+      display: inline-block;
+
+      padding: 7px 13px;
+
+      border: 1px solid #ddd;
+      border-radius: 100px;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      margin-bottom: 25px;
+    }
+
+    body.dark .badge {
+      border-color: #333;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+
+      font-size: clamp(50px, 7vw, 90px);
+
+      line-height: 0.98;
+
+      letter-spacing: -5px;
+
+      margin-bottom: 28px;
+    }
+
+    .hero h1 span {
+      color: #6c4df6;
+    }
+
+    .hero-description {
+      max-width: 600px;
+
+      color: #666;
+
+      font-size: 18px;
+
+      margin-bottom: 35px;
+    }
+
+    body.dark .hero-description {
+      color: #aaa;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 14px 23px;
+
+      border-radius: 100px;
+
+      font-weight: 700;
+
+      transition: 0.25s;
+
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #111;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    body.dark .btn-primary {
+      background: white;
+      color: #111;
+    }
+
+    .btn-outline {
+      border: 1px solid #ccc;
+    }
+
+    .btn-outline:hover {
+      border-color: #6c4df6;
+      color: #6c4df6;
+    }
+
+
+    /* =========================
+       HERO CARD
+    ========================== */
+
+    .hero-card {
+      position: relative;
+
+      min-height: 470px;
+
+      padding: 40px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 35px;
+
+      background: white;
+
+      overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      top: -80px;
+      right: -80px;
+
+      border-radius: 50%;
+
+      background: #6c4df6;
+
+      opacity: 0.85;
+
+      filter: blur(5px);
+    }
+
+    .hero-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      top: 100px;
+      left: -60px;
+
+      border-radius: 50%;
+
+      background: #ffcc70;
+
+      opacity: 0.8;
+
+      filter: blur(10px);
+    }
+
+    .initial {
+      position: absolute;
+
+      top: 40px;
+      left: 40px;
+
+      width: 100px;
+      height: 100px;
+
+      border-radius: 25px;
+
+      display: grid;
+      place-items: center;
+
+      background: rgba(255,255,255,0.75);
+
+      backdrop-filter: blur(10px);
+
+      font-size: 55px;
+      font-weight: 900;
+
+      z-index: 2;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      color: #777;
+
+      margin-bottom: 10px;
+    }
+
+    .hero-card h2 {
+      font-size: 36px;
+      line-height: 1.1;
+      margin-bottom: 30px;
+    }
+
+    .hero-card h2 span {
+      color: #6c4df6;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 10px;
+    }
+
+    .stat {
+      padding: 14px;
+
+      border: 1px solid rgba(0,0,0,0.1);
+
+      border-radius: 15px;
+
+      background: rgba(255,255,255,0.55);
+
+      backdrop-filter: blur(10px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 19px;
+    }
+
+    .stat small {
+      color: #666;
+    }
+
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================== */
+
+    .section {
+      padding: 110px 7%;
+
+      border-top: 1px solid #ddd;
+    }
+
+    .section-title {
+      max-width: 800px;
+
+      margin-bottom: 60px;
+    }
+
+    .section-number {
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      color: #6c4df6;
+
+      margin-bottom: 15px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(38px, 5vw, 65px);
+
+      letter-spacing: -3px;
+
+      line-height: 1;
+    }
+
+    .section-title h2 span {
+      color: #6c4df6;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 50px;
+
+      max-width: 1100px;
+    }
+
+    .about-text {
+      font-size: 23px;
+      line-height: 1.5;
+    }
+
+    .about-box {
+      padding: 35px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 25px;
+
+      background: white;
+    }
+
+    .about-box h3 {
+      font-size: 24px;
+
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: #666;
+    }
+
+    body.dark .about-box p {
+      color: #aaa;
+    }
+
+
+    /* =========================
+       SKILLS
+    ========================== */
+
+    .skills-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 35px;
+
+      min-height: 230px;
+
+      background: white;
+
+      border: 1px solid #ddd;
+
+      border-radius: 25px;
+
+      transition: 0.25s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+
+      border-color: #6c4df6;
+    }
+
+    .skill-number {
+      font-size: 13px;
+      font-weight: 800;
+
+      color: #6c4df6;
+    }
+
+    .skill-card h3 {
+      font-size: 25px;
+
+      margin: 30px 0 10px;
+    }
+
+    .skill-card p {
+      color: #666;
+    }
+
+    body.dark .skill-card p {
+      color: #aaa;
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================== */
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+
+      gap: 18px;
+    }
+
+    .project-card {
+      display: grid;
+
+      grid-template-columns: 80px 1fr auto;
+
+      align-items: center;
+
+      gap: 30px;
+
+      padding: 35px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 25px;
+
+      background: white;
+
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateX(8px);
+
+      border-color: #6c4df6;
+    }
+
+    .project-number {
+      font-size: 14px;
+
+      font-weight: 800;
+
+      color: #6c4df6;
+    }
+
+    .project-card h3 {
+      font-size: 27px;
+
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      color: #666;
+
+      max-width: 650px;
+    }
+
+    body.dark .project-card p {
+      color: #aaa;
+    }
+
+    .tags {
+      display: flex;
+
+      gap: 8px;
+
+      margin-top: 15px;
+
+      flex-wrap: wrap;
+    }
+
+    .tags span {
+      padding: 5px 10px;
+
+      border-radius: 100px;
+
+      background: #eee;
+
+      font-size: 11px;
+
+      font-weight: 700;
+    }
+
+    body.dark .tags span {
+      background: #292929;
+    }
+
+    .project-arrow {
+      font-size: 30px;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+      padding: 120px 7%;
+
+      background: #111;
+
+      color: white;
+
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(45px, 7vw, 85px);
+
+      letter-spacing: -4px;
+
+      line-height: 1;
+
+      margin-bottom: 25px;
+    }
+
+    .contact h2 span {
+      color: #a99cff;
+    }
+
+    .contact p {
+      color: #aaa;
+
+      max-width: 600px;
+
+      margin: 0 auto 30px;
+    }
+
+    .contact .btn {
+      background: white;
+      color: #111;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      padding: 30px 7%;
+
+      display: flex;
+      justify-content: space-between;
+
+      border-top: 1px solid #ddd;
+
+      font-size: 13px;
+
+      color: #777;
+    }
+
+
+    /* =========================
+       ANIMATION
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 850px) {
+
+      .navbar {
+        padding: 16px 5%;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top: 70px;
+        left: 5%;
+        right: 5%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 15px;
+
+        background: white;
+
+        border: 1px solid #ddd;
+
+        border-radius: 20px;
+
+        box-shadow:
+          0 20px 50px rgba(0,0,0,0.1);
+      }
+
+      body.dark .nav-links {
+        background: #191919;
+        border-color: #333;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 130px;
+
+        gap: 50px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-card {
+        min-height: 400px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        grid-template-columns: 45px 1fr;
+
+        gap: 15px;
+      }
+
+      .project-arrow {
+        display: none;
+      }
+
+      .section {
+        padding: 80px 5%;
+      }
+
+      .footer {
+        padding: 25px 5%;
+
+        flex-direction: column;
+
+        gap: 10px;
+      }
+
+    }
+
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-card {
+        padding: 25px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .project-card {
+        padding: 25px;
+      }
+
+      .contact h2 {
+        letter-spacing: -2px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header class="navbar">
+
+    <a href="#home" class="logo">
+      Deepanshu<span>.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+      <a href="#home">Home</a>
+
+      <a href="#about">About</a>
+
+      <a href="#skills">Skills</a>
+
+      <a href="#projects">Projects</a>
+
+      <a href="#contact" class="nav-button">
+        Let's Talk
+      </a>
+
+    </nav>
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open menu"
+    >
+      ☰
+    </button>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="reveal">
+
+        <span class="badge">
+          👋 Welcome to my website
+        </span>
+
+        <h1>
+          Hi, I'm
+          <span>Deepanshu.</span>
+          <br>
+          I build things for the web.
+        </h1>
+
+        <p class="hero-description">
+          I'm passionate about technology, design,
+          creativity and learning new things.
+          This is my personal space on the internet
+          where I share my work and ideas.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            href="#projects"
+            class="btn btn-primary"
+          >
+            View My Work →
+          </a>
+
+          <a
+            href="#about"
+            class="btn btn-outline"
+          >
+            About Me
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-card reveal">
+
+        <div class="initial">
+          D
+        </div>
+
+        <div class="card-content">
+
+          <p class="card-label">
+            CURRENTLY
+          </p>
+
+          <h2>
+            Learning.<br>
+            Creating.<br>
+            <span>Growing.</span>
+          </h2>
+
+          <div class="stats">
+
+            <div class="stat">
+              <strong>∞</strong>
+              <small>Curiosity</small>
+            </div>
+
+            <div class="stat">
+              <strong>24/7</strong>
+              <small>Ideas</small>
+            </div>
+
+            <div class="stat">
+              <strong>100%</strong>
+              <small>Effort</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section
+      class="section"
+      id="about"
+    >
+
+      <div class="section-title reveal">
+
+        <p class="section-number">
+          01 — ABOUT
+        </p>
+
+        <h2>
+          A little bit
+          <span>about me.</span>
+        </h2>
+
+      </div>
+
+      <div class="about-grid">
+
+        <p class="about-text reveal">
+          I'm someone who enjoys turning curiosity
+          into projects. I love exploring technology,
+          learning new skills and creating things
+          that are useful, simple and fun.
+        </p>
+
+        <div class="about-box reveal">
+
+          <h3>
+            My mindset ✦
+          </h3>
+
+          <p>
+            I believe the best way to learn something
+            is to build something with it. Every project
+            is an opportunity to learn something new.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section
+      class="section"
+      id="skills"
+    >
+
+      <div class="section-title reveal">
+
+        <p class="section-number">
+          02 — SKILLS
+        </p>
+
+        <h2>
+          Things I'm
+          <span>exploring.</span>
+        </h2>
+
+      </div>
+
+      <div class="skills-grid">
+
+        <article class="skill-card reveal">
+
+          <span class="skill-number">
+            01
+          </span>
+
+          <h3>
+            Web Design
+          </h3>
+
+          <p>
+            Clean layouts, modern interfaces,
+            responsive designs and thoughtful
+            user experiences.
+          </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+          <span class="skill-number">
+            02
+          </span>
+
+          <h3>
+            Development
+          </h3>
+
+          <p>
+            HTML, CSS, JavaScript and the tools
+            that turn ideas into real websites.
+          </p>
+
+        </article>
+
+
+        <article class="skill-card reveal">
+
+          <span class="skill-number">
+            03
+          </span>
+
+          <h3>
+            Creativity
+          </h3>
+
+          <p>
+            Visual ideas, content, experiments
+            and creative projects that stand out.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section
+      class="section"
+      id="projects"
+    >
+
+      <div class="section-title reveal">
+
+        <p class="section-number">
+          03 — PROJECTS
+        </p>
+
+        <h2>
+          Selected
+          <span>work.</span>
+        </h2>
+
+      </div>
+
+      <div class="projects">
+
+
+        <article class="project-card reveal">
+
+          <div class="project-number">
+            01
+          </div>
+
+          <div>
+
+            <h3>
+              Personal Website
+            </h3>
+
+            <p>
+              A modern responsive personal website
+              designed to showcase my skills,
+              projects and journey.
+            </p>
+
+            <div class="tags">
+
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+
+            </div>
+
+          </div>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+          <div class="project-number">
+            02
+          </div>
+
+          <div>
+
+            <h3>
+              Creative Experiments
+            </h3>
+
+            <p>
+              Small experiments created while
+              learning web development and
+              exploring new ideas.
+            </p>
+
+            <div class="tags">
+
+              <span>Design</span>
+              <span>UI</span>
+              <span>Experiments</span>
+
+            </div>
+
+          </div>
+
+          <span class="project-arrow">
+            ↗
+          </span>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+          <div class="project-number">
+            03
+          </div>
+
+          <div>
+
+            <h3>
+              What's Next?
+            </h3>
+
+            <p>
+              More projects are coming soon as
+              I continue learning, experimenting
+              and building.
+            </p>
+
+            <div class="tags">
+
+              <span>Coming Soon</span>
+
+            </div>
+
+          </div>
+
+          <span class="project-arrow">
+            →
+          </span>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section
+      class="contact"
+      id="contact"
+    >
+
+      <p class="section-number">
+        04 — CONTACT
+      </p>
+
+      <h2>
+        Have an idea?
+        <br>
+        <span>Let's make it real.</span>
+      </h2>
+
+      <p>
+        I'm always excited about interesting ideas,
+        creative projects and new things to learn.
+      </p>
+
+      <a
+        href="mailto:hello@example.com"
+        class="btn"
+      >
+        Say Hello ↗
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="footer">
+
+    <span>
+      © 2026 Deepanshu
+    </span>
+
+    <span>
+      Made with curiosity ✦
+    </span>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+
+      navLinks.classList.toggle("active");
+
+      if (navLinks.classList.contains("active")) {
+        menuButton.textContent = "✕";
+      } else {
+        menuButton.textContent = "☰";
+      }
+
+    });
+
+
+    /* Close menu after clicking link */
+
+    document.querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("active");
+
+          menuButton.textContent = "☰";
+
+        });
+
+      });
+
+
+    /* =========================
+       DARK MODE
+    ========================== */
+
+    const darkButton =
+      document.createElement("button");
+
+    darkButton.innerHTML = "◐";
+
+    darkButton.title = "Toggle dark mode";
+
+    darkButton.style.position = "fixed";
+    darkButton.style.bottom = "25px";
+    darkButton.style.right = "25px";
+    darkButton.style.width = "48px";
+    darkButton.style.height = "48px";
+    darkButton.style.borderRadius = "50%";
+    darkButton.style.border = "1px solid #ccc";
+    darkButton.style.background = "white";
+    darkButton.style.cursor = "pointer";
+    darkButton.style.fontSize = "20px";
+    darkButton.style.zIndex = "999";
+
+    document.body.appendChild(darkButton);
+
+
+    darkButton.addEventListener("click", () => {
+
+      document.body.classList.toggle("dark");
+
+      if (
+        document.body.classList.contains("dark")
+      ) {
+
+        localStorage.setItem(
+          "darkMode",
+          "true"
+        );
+
+      } else {
+
+        localStorage.setItem(
+          "darkMode",
+          "false"
+        );
+
+      }
+
+    });
+
+
+    /* Remember dark mode */
+
+    if (
+      localStorage.getItem("darkMode") === "true"
+    ) {
+
+      document.body.classList.add("dark");
+
+    }
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================== */
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("show");
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(element => {
+
+        observer.observe(element);
+
+      });
+
+
+    /* =========================
+       CURRENT YEAR
+    ========================== */
+
+    const footer =
+      document.querySelector(".footer span");
+
+    footer.textContent =
+      "© " +
+      new Date().getFullYear() +
+      " Deepanshu";
+
+
+  </script>
+
+</body>
+</html>
